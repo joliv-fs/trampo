@@ -10,6 +10,6 @@ public enum Disponibilidade {
     AGENDAMENTO("Atendimento por agendamento"),
     INDISPONIVEL("Atendimento indisponível no momento");
 
-    private final String disponibilidade;
+    private final String descricao;
 
 }

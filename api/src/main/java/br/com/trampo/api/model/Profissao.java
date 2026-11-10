@@ -28,6 +28,6 @@ public enum Profissao {
     SERRALHEIRO("Serralheiro"),
     OUTROS("Outros");
 
-    private final String profissao;
+    private final String descricao;
 
 }
