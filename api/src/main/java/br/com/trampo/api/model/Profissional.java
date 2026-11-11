@@ -37,7 +37,7 @@ public class Profissional {
 
     @Setter
     @Column(nullable = false, length = 254)
-    private String descricao;
+    private String resumoProfissional;
 
     @Setter
     @Enumerated(EnumType.STRING)
@@ -47,6 +47,6 @@ public class Profissional {
     @Setter
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Profissao disponibilidade;
+    private Disponibilidade disponibilidade;
 
 }

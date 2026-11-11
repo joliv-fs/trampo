@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Disponibilidade {
-    IMEDIATA("Atendimento rápido"),
+    IMEDIATA("Atendimento imediato"),
     AGENDAMENTO("Atendimento por agendamento"),
     INDISPONIVEL("Atendimento indisponível no momento");
 
