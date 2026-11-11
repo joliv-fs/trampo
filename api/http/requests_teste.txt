@@ -1,0 +1,99 @@
+{
+  "nome": "João Cimento",
+  "contato": "24992345678",
+  "nomeExibicao": "João Cimento Construções",
+  "resumoProfissional": "Comecei ainda jovem no canteiro de obras e tenho experiêcia em pequenas reformas.",
+  "profissao": "PEDREIRO",
+  "disponibilidade": "AGENDAMENTO"
+}
+
+  {
+    "nome": "Mara Coral",
+    "contato": "24981123456",
+    "nomeExibicao": "Mara Pinturas e Acabamentos",
+    "resumoProfissional": "Especialista em pintura residencial e decorativa. Adoro transformar ambientes. 5 anos de experiência trabalhando com tintas premium e texturas.",
+    "profissao": "PINTOR",
+    "disponibilidade": "AGENDAMENTO"
+  }
+
+  {
+    "nome": "Carlos Tê",
+    "contato": "24988776655",
+    "nomeExibicao": "Carlos Encanador 24h",
+    "resumoProfissional": "Trabalho com caça-vazamentos, desentupimento e instalações hidráulicas em geral. Mais de 12 anos atuando na área hidráulica residencial e comercial.",
+    "profissao": "ENCANADOR",
+    "disponibilidade": "IMEDIATA"
+  }
+
+  {
+    "nome": "Ana Sacho",
+    "contato": "24993004411",
+    "nomeExibicao": "Ana Paisagismo e Jardinagem",
+    "resumoProfissional": "Apaixonada por plantas. Cuido do seu jardim, poda de árvores e plantio de gramados. 8 anos cuidando de jardins residenciais e de condomínios.",
+    "profissao": "JARDINEIRO",
+    "disponibilidade": "AGENDAMENTO"
+  }
+
+  {
+    "nome": "Marcos Faísca",
+    "contato": "24974012398",
+    "nomeExibicao": "Marcos Instalações Elétricas",
+    "resumoProfissional": "Serviços elétricos com total segurança. Troca de fiação, disjuntores e luminárias. Técnico em eletrotécnica com 15 anos de experiência no mercado.",
+    "profissao": "ELETRICISTA",
+    "disponibilidade": "AGENDAMENTO"
+  }
+
+  {
+    "nome": "Camila Marmorite",
+    "contato": "24981450987",
+    "nomeExibicao": "Camila Pisos e Azulejos",
+    "resumoProfissional": "Especialista em assentamento de porcelanatos, pastilhas e grandes formatos há 8 anos.",
+    "profissao": "PISOS_E_REVESTIMENTOS",
+    "disponibilidade": "AGENDAMENTO"
+  }
+
+  {
+    "nome": "Roberto Pau Ferro",
+    "contato": "24998881122",
+    "nomeExibicao": "Roberto Móveis Planejados",
+    "resumoProfissional": "Fabricação e reparo de móveis de madeira, armários embutidos e restaurações. Marceneiro de profissão há 20 anos, seguindo a tradição da família.",
+    "profissao": "MARCENEIRO",
+    "disponibilidade": "AGENDAMENTO"
+  }
+  
+  {
+    "nome": "Renata Manitas",
+    "contato": "24992547613",
+    "nomeExibicao": "Renata Reparos Express",
+    "resumoProfissional": "Serviços de marido de aluguel, pequenos consertos, troca de torneiras e pendurar quadros há 5 anos.",
+    "profissao": "REPAROS_EM_GERAL",
+    "disponibilidade": "IMEDIATA"
+  }
+
+  {
+    "nome": "Thiago Pendural",
+    "contato": "24988223344",
+    "nomeExibicao": "Thiago Gesso e Drywall",
+    "resumoProfissional": "Especialista em divisórias de drywall e sancas de gesso com 6 anos de mercado.",
+    "profissao": "DRYWALL",
+    "disponibilidade": "AGENDAMENTO"
+  }
+  
+  {
+    "nome": "Beatriz Zigbee",
+    "contato": "24974058962",
+    "nomeExibicao": "Bia Casa Inteligente",
+    "experiencia": "Projetos personalizados de automação residencial, iluminação inteligente e home theater há 4 anos.",
+    "profissao": "AUTOMACAO_RESIDENCIAL",
+    "disponibilidade": "IMEDIATA"
+  }
+  
+  {
+    "nome": "Rodrigo Ferrolho",
+    "contato": "24993127845",
+    "nomeExibicao": "Rodrigo Serralheiro",
+    "experiencia": "Trabalho com portões, grades, estruturas metálicas e solda em geral há 10 anos.",
+    "profissao": "SERRALHEIRO",
+    "disponibilidade": "INDISPONIVEL"
+  }
+

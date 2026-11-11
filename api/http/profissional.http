@@ -1,0 +1,187 @@
+@baseUrl = http://localhost:8080/profissionais
+
+
+### ============================================================================
+### 1. CADASTRAR PROFISSIONAL (POST)
+### ============================================================================
+
+### [201 Created] Caminho Feliz - Cadastro válido
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+    "nome": "João Risolvere",
+    "contato": "24999998888",
+    "nomeExibicao": "João Reparos Rapidos",
+    "resumoProfissional": "Pronto para resolver pequenos reparos residenciais.",
+    "profissao": "MANUTENCAO_RESIDENCIAL",
+    "disponibilidade": "IMEDIATA"
+}
+
+### [201 Created] Caminho Feliz - Segundo profissional (para testar conflito no PUT)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome": "Mariana Stillson",
+  "contato": "(24) 98811-2233",
+  "nomeExibicao": "Mari Hidráulica",
+  "resumoProfissional": "Especialista em reparos hidráulicos, desentupimento e instalação de louças.",
+  "profissao": "ENCANADOR",
+  "disponibilidade": "AGENDAMENTO"
+}
+
+### [201 Created] Caminho Feliz - Terceiro profissional
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome": "Alberto Morsa",
+  "contato": "(24) 99234-5678",
+  "nomeExibicao": "Berto da Morsa",
+  "resumoProfissional": "Fabricação e manutenção de portões automáticos, grades de proteção e estruturas metálicas sob medida.",
+  "profissao": "SERRALHEIRO",
+  "disponibilidade": "IMEDIATA"
+}
+
+
+
+### [409 Conflict] Erro - Nome de exibição duplicado (rodar após o primeiro POST)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome": "Outro Profissional",
+  "contato": "(24) 97766-5544",
+  "nomeExibicao": "João Reparos Rapidos",
+  "resumoProfissional": "Resumo válido dentro do limite.",
+  "profissao": "PEDREIRO",
+  "disponibilidade": "IMEDIATA"
+}
+
+### [400 Bad Request] Erro - Falha nas validações (@NotBlank, @Pattern e @Size)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome": "",
+  "contato": "12345",
+  "nomeExibicao": "Nome profissional extremamente longo que ultrapassa o limite máximo de cinquenta e cinco caracteres",
+  "resumoProfissional": "",
+  "profissao": "ELETRICISTA",
+  "disponibilidade": "IMEDIATA"
+}
+
+### [400 Bad Request] Erro - Valor de Enum inválido
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome": "ENUM INVÁLIDO",
+  "contato": "(24) 98765-4321",
+  "nomeExibicao": "ENUM INVÁLIDO",
+  "resumoProfissional": "TESTE DE ENUM INVÁLIDO",
+  "profissao": "PROFISSAO_INEXISTENTE",
+  "disponibilidade": "IMEDIATA"
+}
+
+
+### ============================================================================
+### 2. LISTAR PROFISSIONAIS (GET)
+### ============================================================================
+
+### [200 OK] Caminho Feliz - Listagem padrão (página 0, tamanho 9)
+GET {{baseUrl}}
+
+### [200 OK] Caminho Feliz - Listagem com filtros e paginação
+GET {{baseUrl}}?nomeExibicao=João&profissao=MANUTENCAO_RESIDENCIAL&disponibilidade=IMEDIATA&page=0&size=5
+
+### [200 OK] Caminho Feliz - BUSCAR por enum
+GET {{baseUrl}}?profissao=MANUTENCAO_RESIDENCIAL
+
+### [400 Bad Request] Erro - Filtro de disponibilidade inválido
+GET {{baseUrl}}?disponibilidade=DISPONIVEL
+Accept: application/json
+
+
+
+### ============================================================================
+### 3. BUSCAR POR ID (GET /{id})
+### ============================================================================
+
+
+### [200 OK] Caminho Feliz - Buscar ID existente
+GET {{baseUrl}}/2
+
+### [404 Not Found] Erro - ID inexistente
+GET {{baseUrl}}/9999
+Accept: application/json
+
+
+### ============================================================================
+### 4. ATUALIZAR PROFISSIONAL (PUT /{id})
+### ============================================================================
+
+### [200 OK] Caminho Feliz - Atualização completa válida (ID 3)
+PUT {{baseUrl}}/3
+Content-Type: application/json
+
+{
+  "nome": "Alberto Morsa",
+  "contato": "24 98877-6655",
+  "nomeExibicao": "Berto Serralheria e Automação",
+  "resumoProfissional": "Especialista em portões automáticos, quadros elétricos e estruturas metálicas.",
+  "profissao": "SERRALHEIRO",
+  "disponibilidade": "AGENDAMENTO"
+}
+
+### [409 Conflict] Erro - Atualizar ID 1 usando o nomeExibicao já cadastrado no ID 2
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "nome": "João Risolvere",
+  "contato": "24999998888",
+  "nomeExibicao": "Mari Hidráulica",
+  "resumoProfissional": "Tentativa de duplicar nome profissional de outro registro.",
+  "profissao": "ELETRICISTA",
+  "disponibilidade": "IMEDIATA"
+}
+
+### [404 Not Found] Erro - Atualizar ID inexistente
+PUT {{baseUrl}}/9999
+Content-Type: application/json
+
+{
+  "nome": "ATT ID NA",
+  "contato": "(24) 91234-5678",
+  "nomeExibicao": "NOME EXIBICAO NA",
+  "resumoProfissional": "RESUMO PROFISSIONAL NA",
+  "profissao": "OUTROS",
+  "disponibilidade": "IMEDIATA"
+}
+
+
+### ============================================================================
+### 5. ALTERAR DISPONIBILIDADE (PATCH /{id}/disponibilidade)
+### ============================================================================
+
+### [204 No Content] Caminho Feliz - Alterar disponibilidade via RequestParam
+PATCH {{baseUrl}}/2/disponibilidade?novaDisponibilidade=INDISPONIVEL
+
+### [400 Bad Request] Erro - Chamada sem o parâmetro obrigatório novaDisponibilidade
+PATCH {{baseUrl}}/1/disponibilidade
+
+### [404 Not Found] Erro - Alterar disponibilidade de ID inexistente
+PATCH {{baseUrl}}/9999/disponibilidade?novaDisponibilidade=IMEDIATA
+
+
+### ============================================================================
+### 6. DELETAR PROFISSIONAL (DELETE /{id})
+### ============================================================================
+
+### [204 No Content] Caminho Feliz - Deletar profissional existente
+DELETE {{baseUrl}}/1
+
+### [404 Not Found] Erro - Tentar deletar novamente o mesmo ID
+DELETE {{baseUrl}}/1
